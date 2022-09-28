@@ -18,12 +18,12 @@ END DFF16;
 ARCHITECTURE DFF_ARCH OF DFF16 IS
 BEGIN
 
-  PROCESS (clk, sync_reset) IS
+  PROCESS (clk) IS
   BEGIN
-      IF(sync_reset='1') THEN
-        q <= (OTHERS => '0');
-      ELSIF(rising_edge(Clk)) THEN
+	IF FALLING_EDGE(clk) THEN
+      IF(sync_reset='0') THEN
         q <= d;
       END IF;
+	 END IF;
   END PROCESS;
 END ARCHITECTURE DFF_ARCH;

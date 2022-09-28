@@ -38,14 +38,14 @@ BEGIN
 	
 	STIMULUS: PROCESS
 	BEGIN
-		d <='0';
-		WAIT FOR clk_period;
 		d <='1';
+		WAIT FOR clk_period;
+		d <='0';
 		WAIT FOR 100ns; 
 		sync_reset <= '1';
-		d <='0';
-		WAIT FOR clk_period;
 		d <='1';
+		WAIT FOR clk_period;
+		d <='0';
 	END PROCESS;
 
 END TEST_BENCH;

@@ -22,7 +22,7 @@ BEGIN
   BEGIN
       IF(sync_reset='1') THEN
         q <= (OTHERS => '0');
-      ELSIF(rising_edge(Clk)) THEN
+      ELSIF(rising_edge(clk)) THEN
         q <= d;
       END IF;
   END PROCESS;
