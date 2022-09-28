@@ -5,6 +5,7 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 ENTITY EDGE_TRIG IS
+GENERIC (DELAY : TIME := 2 ns);
   PORT(
     d : IN STD_LOGIC;
     clk : IN STD_LOGIC;
@@ -17,15 +18,13 @@ ARCHITECTURE EDGE_TRIGGER OF EDGE_TRIG IS
   SIGNAL regA, regB : STD_LOGIC;
   
 BEGIN
-  EDT : PROCESS(clk)
+	  regA <= d AFTER DELAY;
+  EDT : PROCESS(d)
   
   BEGIN
-    IF rising_edge(clk) THEN
-      regA <= d;
-      regB <= regA;
-    END IF;
+	IF RISING_EDGE(clk) THEN
+		edge <= d AND (NOT regA);
+	END IF;
   END PROCESS;
-  
-  edge <= regA AND (NOT regB);
   
 END EDGE_TRIGGER;
