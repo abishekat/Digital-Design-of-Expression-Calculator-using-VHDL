@@ -11,39 +11,42 @@ ARCHITECTURE TESTBENCH OF MUX_TB IS
   
   COMPONENT MUX2TO1
     PORT(
-      a : IN STD_LOGIC;
-      b : IN STD_LOGIC;
+      a : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+      b : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
       sel : IN STD_LOGIC;
-      O: OUT STD_LOGIC
+      O: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
     );
 END COMPONENT;
 
-SIGNAL clk, a, b, sel, o : STD_LOGIC := '0';
+SIGNAL a, b, O: STD_LOGIC_VECTOR (31 DOWNTO 0);
+SIGNAL sel, clk: STD_LOGIC := '0';
 CONSTANT clk_period: time := 10ns;
 
 
 BEGIN
   uut: MUX2TO1
   PORT MAP(
-  a => a, b => b, sel => sel, o => o
+  a => a, b => b, sel => sel, O => o
   );
   
   PROCESS
-  BEGIN
-    clk <= '0';
-    WAIT FOR clk_period/2;
-    clk <= '1';
-    WAIT FOR clk_period/2;
+    BEGIN
+      clk <= '0';
+      WAIT FOR clk_period/2;
+      clk <= '1';
+      WAIT FOR clk_period/2;
+    
   END PROCESS;
   
   stimulus: PROCESS
   BEGIN
-  a <= '0';
-  b <= '1';
+  sel <= '0';
+  a <= "00000000000000000000000000000001";
+  b <= "00000000000000000000000000000010";
   WAIT FOR clk_period*2;
   sel <= '1';
-  a <= '1';
-  b <= '0';
+  a <= "00000000000000000000000000010001";
+  b <= "00000000000000000000000001000010";
   WAIT;
   END PROCESS;
 
