@@ -12,9 +12,9 @@ ARCHITECTURE TEST_BENCH OF MULTIPLIER16_TB IS
 COMPONENT multi_16bit
 
 PORT(
-	a16 : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-	x16 : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-	p16 : OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+	X : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+	Y : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+	Z_P : OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 );
 
 END COMPONENT;
@@ -28,7 +28,7 @@ CONSTANT clk_period : time := 10ns;
 BEGIN
 	uut: multi_16bit
 	PORT MAP(
-		a16 => multiplier, x16 => multiplicand, p16 => product
+		X => multiplier, Y => multiplicand, Z_P => product
 	);
 	
 	
