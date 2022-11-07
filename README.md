@@ -6,9 +6,9 @@
 
 Abishek Arumugam Thiruselvi('40218896')
 
-Manish Pejathaya ('-----')
+Manish Pejathaya (40194909)
 
-Mahsa Vahed('-----')
+Mahsa Vahed(40183415)
 ```
 ## Description
 Design of arithmetic unit to perform 
