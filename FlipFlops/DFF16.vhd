@@ -1,3 +1,4 @@
+
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
@@ -17,15 +18,15 @@ END DFF16;
 
 ARCHITECTURE DFF_ARCH OF DFF16 IS
 BEGIN
-
+  
   PROCESS (clk, enable) IS
   BEGIN
-	IF FALLING_EDGE(clk) THEN
+  IF (clk'event AND clk='1') THEN
       IF (enable='1') THEN
         q <= d;
       ELSE
         q <= (OTHERS => '0');
       END IF;
-	 END IF;  
+   END IF;  
   END PROCESS;
 END ARCHITECTURE DFF_ARCH;

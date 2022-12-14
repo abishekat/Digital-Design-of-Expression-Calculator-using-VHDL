@@ -41,13 +41,39 @@ BEGIN
   STIMULUS: PROCESS
   BEGIN
     d <="0000000000000000";
-    WAIT FOR clk_period;
-    d <="0000000000000001";
-    WAIT FOR 100ns; 
-    enable <= '1';
-    d <="0000000000000000";
-    WAIT FOR clk_period;
-    d <="0000000000000001";
+WAIT FOR clk_period*2;
+  enable <= '1';
+  d <="0000000000000001";
+WAIT FOR clk_period*2; 
+   
+     enable <= '1';
+     d <="0000000000000001";
+WAIT FOR clk_period*2;
+   
+      enable <= '0';
+      d <="0000000000000001";
+WAIT FOR clk_period*2;
+
+  enable <= '1';
+      d <="0000000000000001";
+WAIT FOR clk_period*2;
+
+  enable <= '0';
+      d <="0000000000000001";
+WAIT FOR clk_period*2;
+
+  enable <= '1';
+      d <="0000000000000001";
+WAIT FOR clk_period*2;
+
+  enable <= '0';
+      d <="0000000000000001";
+WAIT FOR clk_period*2;
+
+  enable <= '1';
+      d <="0000000000000001";
+WAIT FOR clk_period*2;
+   
   END PROCESS;
 
 END TEST_BENCH;
