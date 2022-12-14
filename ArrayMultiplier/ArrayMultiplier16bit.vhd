@@ -48,12 +48,8 @@ mHigh_nHigh_32(15 DOWNTO 0) <= mHigh_nHigh(15 DOWNTO 0);
 first <= to_integer(unsigned(mLow_nLow));
 second <= to_integer(unsigned(mHigh_nLow));
 third <= to_integer(unsigned(mLow_nHigh));
-fourth <= to_integer(shift_left(unsigned(mHigh_nHigh_32),16));
+fourth <= to_integer(unsigned(mHigh_nHigh_32));
 
---report "first" & integer'image(first);
---report "seconf" & integer'image(second);
---report "third" & integer'image(third);
---report "fourth" & integer'image(fourth);
 
 sum <= fourth + (third + second)*256 + first;
 Z_P <= STD_LOGIC_VECTOR(to_signed(sum, 32));

@@ -45,7 +45,37 @@ BEGIN
 	BEGIN
 		multiplier <= "0000000000000001";
 		multiplicand <= "0000000000000010";
-	WAIT;
+	WAIT FOR clk_period*2;
+	multiplier <= "0000000000000001";
+  multiplicand <= "0000000000000010";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000000011";
+  multiplicand <= "0000000000000010";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000000001";
+  multiplicand <= "0000000000000011";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000000101";
+  multiplicand <= "0000000000000010";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000000001";
+  multiplicand <= "0000000000001010";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000001001";
+  multiplicand <= "0000000000000110";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000000101";
+  multiplicand <= "0000000000000011";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000001001";
+  multiplicand <= "0000000000000110";
+WAIT FOR clk_period*2;
+  multiplier <= "0000000000001011";
+  multiplicand <= "0000000000000010";
+WAIT FOR clk_period*2;	
+  multiplier <= "0000000000000101";
+  multiplicand <= "0000000000010011";
+WAIT FOR clk_period*2;
 	END PROCESS;
 
 END TEST_BENCH;
