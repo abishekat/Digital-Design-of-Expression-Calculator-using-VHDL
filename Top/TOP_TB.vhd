@@ -46,36 +46,98 @@ END COMPONENT;
    stimulus : PROCESS
    BEGIN
      
-     
-   A_IN <= x"0008";-- after clk_period*2, x"0008" after clk_period*4, x"0000" after clk_period*8, x"FFFF" after clk_period*12;   
-   
-   B_IN <= x"0004";-- after clk_period*2, x"0002" after clk_period*4, x"0005" after clk_period*8, x"FFFF" after clk_period*12;
-   
-   LOAD_IP <= '1';-- after clk_period*2, '0' after clk_period*4, '1' after clk_period*4, '0' after clk_period*8, '1' after clk_period*12;--,'0' after clk_period*10;      
-       
-   CLR_FLAG <= '0';--  after clk_period*2, '1' after clk_period*4, '0' after clk_period*8, '1' after clk_period*12; --'0' after clk_period*16;
-   
-   WAIT FOR clk_period*4;
-   
-    A_IN <= x"0002";-- after clk_period*2, x"0008" after clk_period*4, x"0000" after clk_period*8, x"FFFF" after clk_period*12;   
-     
-     B_IN <= x"0004";-- after clk_period*2, x"0002" after clk_period*4, x"0005" after clk_period*8, x"FFFF" after clk_period*12;
-     
-     LOAD_IP <= '0';-- after clk_period*2, '0' after clk_period*4, '1' after clk_period*4, '0' after clk_period*8, '1' after clk_period*12;--,'0' after clk_period*10;      
-         
-     CLR_FLAG <= '1';--  after clk_period*2, '1' after clk_period*4, '0' after clk_period*8, '1' after clk_period*12; --'0' after clk_period*16;
-     
-     WAIT FOR clk_period*8;
-     
-     A_IN <= x"0008";-- after clk_period*2, x"0008" after clk_period*4, x"0000" after clk_period*8, x"FFFF" after clk_period*12;   
         
-        B_IN <= x"0008";-- after clk_period*2, x"0002" after clk_period*4, x"0005" after clk_period*8, x"FFFF" after clk_period*12;
+      A_IN <= x"0008";
+      
+      B_IN <= x"0004";
+      
+      LOAD_IP <= '1';
+          
+      CLR_FLAG <= '0';
+      
+     WAIT FOR clk_period*4;
+      
+      A_IN <= x"0008";
+      
+      B_IN <= x"0002";
+      
+      LOAD_IP <= '0';
+          
+      CLR_FLAG <= '1';
+      
+     WAIT FOR clk_period*4;
         
-        LOAD_IP <= '1';-- after clk_period*2, '0' after clk_period*4, '1' after clk_period*4, '0' after clk_period*8, '1' after clk_period*12;--,'0' after clk_period*10;      
-            
-        CLR_FLAG <= '0';--  after clk_period*2, '1' after clk_period*4, '0' after clk_period*8, '1' after clk_period*12; --'0' after clk_period*16;
         
-        WAIT FOR clk_period*16;
+     A_IN <= x"0004";
+      
+       B_IN <= x"0004";
+      
+       LOAD_IP <= '1';
+          
+       CLR_FLAG <= '0';
+           
+     WAIT FOR clk_period*4;
+      
+        A_IN <= x"0002";
+      
+       B_IN <= x"0004";
+      
+       LOAD_IP <= '0';
+          
+      CLR_FLAG <= '1';
+           
+     WAIT FOR clk_period*4;
+      
+        A_IN <= x"0006";
+      
+       B_IN <= x"0004";
+      
+       LOAD_IP <= '1';
+          
+       CLR_FLAG <= '0';
+           
+     WAIT FOR clk_period*4;
+      
+        A_IN <= x"0009";
+      
+       B_IN <= x"0004";
+      
+       LOAD_IP <= '0';
+          
+      CLR_FLAG <= '1';
+           
+     WAIT FOR clk_period*4;
+      
+        A_IN <= x"0003";
+      
+       B_IN <= x"0004";
+      
+       LOAD_IP <= '1';
+          
+       CLR_FLAG <= '0';
+           
+     WAIT FOR clk_period*4;
+      
+        A_IN <= x"0005";
+      
+       B_IN <= x"0004";
+      
+       LOAD_IP <= '0';
+          
+      CLR_FLAG <= '1';
+           
+     WAIT FOR clk_period*4;
+      
+        A_IN <= x"0008";
+      
+       B_IN <= x"0005";
+      
+       LOAD_IP <= '1';
+          
+       CLR_FLAG <= '0';
+           
+     WAIT FOR clk_period*4;
+      
    
    END PROCESS;
 END TESTBENCH;

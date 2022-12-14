@@ -1,3 +1,4 @@
+
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
@@ -44,7 +45,7 @@ END COMPONENT;
 COMPONENT DFF IS
 
     PORT(
-	     d : IN STD_LOGIC;
+       d : IN STD_LOGIC;
        enable : IN STD_LOGIC;
        clk : IN STD_LOGIC;
        q : OUT STD_LOGIC
@@ -99,7 +100,6 @@ SIGNAL S2_SR_DIV_VAL, S2_SR_OP, S3_ADD_OPERAND, Z_OUT, Z_REG  : STD_LOGIC_VECTOR
 BEGIN
   A_IP <= ( 15 DOWNTO 0 => (NOT CLR)) AND A;
   B_IP <= ( 15 DOWNTO 0 => (NOT CLR)) AND B;
-END_F <='0';
     
   -- LOAD AT POS
   LD_POS <= LOAD;
@@ -111,8 +111,8 @@ END_F <='0';
   FF0_B_IP : DFF16 PORT MAP ( d => B_IP, enable => LOAD_IN, clk => CLK, q => B_REG);
     
   -- END FLAG SETTING
-  FF0_LD_EN <= CLK OR LD_POS;
-  FF0_LD_EF: DFF PORT MAP  (d => LD_POS, enable => FF0_LD_EN, clk => CLK, q => END_FLAG);
+  END_FLAG <=  LD_POS;
+  --FF0_LD_EF: DFF PORT MAP  (d => LD_POS, enable => FF0_LD_EN, clk => CLK, q => END_FLAG);
     
   -- CLEAR FLAG SETTING
   FF0_CLR_EN <= CLR_POS;
@@ -151,7 +151,9 @@ END_F <='0';
   
   MUX_OUT : MUX2TO1 PORT MAP (a => Z_OUT, b => (OTHERS => '0'), sel => S2_CLR_FLAG, O => Z_REG);
   
-  Z <= Z_REG;  
-  END_F <= S2_END_FLAG;
+  Z <= Z_REG; 
+   
+  END_F <= '1' when (S2_END_Flag='1') else
+            '0';
   
 END TOP_LEVEL;
