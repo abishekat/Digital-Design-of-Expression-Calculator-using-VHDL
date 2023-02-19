@@ -1,4 +1,4 @@
-# COEN 6501: DIGITAL DESIGN AND SYNTHESIS PROJECT
+# COEN 6501: DSD - Digital design of Expression Calculator using VHDL
 
 ## Team
 
